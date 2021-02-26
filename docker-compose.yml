@@ -1,0 +1,31 @@
+version: "2"
+services:
+  scraper:
+    image: golang
+    ports:
+    - 9000:9000
+    volumes:
+    - ./Scraper:/go/src/github.com/SanjanaKansal/scraper/
+    working_dir: /go/src/github.com/SanjanaKansal/scraper/
+    command: go run ScraperMain/webscraper.go
+    depends_on: 
+    - datahandler
+  datahandler:
+    image: golang
+    ports:
+    - 9001:9001
+    volumes:
+    - ./DataHandler:/go/src/github.com/SanjanaKansal/data_handler/
+    working_dir: /go/src/github.com/SanjanaKansal/data_handler/
+    command: go run DataHandlerMain/datahandler.go
+    depends_on:
+    - mongo
+  mongo:
+    image: mongo
+    ports:
+    - 27017:27017
+    volumes:
+    - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
+    
+    
+    

@@ -1,0 +1,7 @@
+{
+	"HOST" : "0.0.0.0",
+	"PORT" : 9001,
+	"MONGODBNAME" : "ScraperDB",
+	"MONGOCOLLECTIONNAME" : "amazon_product_details",
+	"MONGOURI" : "mongodb://172.17.0.1:27017"
+}
