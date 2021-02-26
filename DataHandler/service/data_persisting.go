@@ -12,6 +12,8 @@ import (
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
+
+// PersistData, takes the data and stores it in MongoDB.
 func PersistData(scrapedData models.ScrapedData) models.SuccessMessage {
 	var out models.SuccessMessage
 	scrapedData.LastUpdatedTime = time.Now()
